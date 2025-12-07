@@ -7,7 +7,6 @@ import cors from "cors";
 import { clerkMiddleware } from "@clerk/express";
 import getConnection from "./utils/getConnection.js";
 import clerkWebhooks from "./controllers/webhooks.js";
-import connectCloudinary from "./config/cloudinary.js";
 
 import companyRoutes from "./routes/companyRoutes.js";
 import JobRoutes from "./routes/JobRoutes.js";
@@ -27,7 +26,6 @@ app.use(express.json());
 app.use(clerkMiddleware());
 
 getConnection();
-await connectCloudinary();
 
 app.get("/", (req, res) => {
      res.send("Backend Working");
